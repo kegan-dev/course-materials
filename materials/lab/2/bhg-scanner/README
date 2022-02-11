@@ -1,1 +1,7 @@
-You might need to do a "go mod init bhg-scanner" or "go mod tidy"
+1. This code allows a programmer or user to scan ports at scanme.nmap.org.
+2. The code has been modified for usability notes, to track closed ports, output to csv, and returns the total open and closed ports after a scan.
+3. Additional modifications have been made to use a PortScanner struct so the programmer can define the behavior of a scanner. StartPort and EndPort
+define the inclusive range of the ports for the scanner to check. Timeout defines the number of seconds until timing out when checking a port. Tests
+have been added to check negative timeouts, and small or mismatched port ranges.
+
+
