@@ -11,14 +11,38 @@ import (
 	"os"
 	"encoding/json"
 	"shodan/shodan"
+	"flag"
 )
 
 func main() {
-	if len(os.Args) != 2 {
-		log.Fatalln("Usage: main <searchterm>")
-	}
+	searchPtr := flag.String("search", "", "The search term to query.")
+	helpPtr := flag.Bool("help", false, "Get available facets and filters.")
+	flag.Parse()
+
 	apiKey := os.Getenv("SHODAN_API_KEY")
 	s := shodan.New(apiKey)
+	if (*helpPtr) {
+		helpInfo , err := s.Helper()
+		if err != nil {
+			log.Panicln(err)
+		}
+
+		fmt.Println("\nAvailable Facets:")
+		for _, facet := range helpInfo.AvailableFacets {
+			fmt.Println(facet)
+		}
+
+		fmt.Println("\nAvailable filters:")
+		for _, filter := range helpInfo.AvailableFilters {
+			fmt.Println(filter)
+		}
+		return
+	}
+
+	if searchPtr == nil || *searchPtr == "" {
+		log.Fatalln("Usage: main --search <searchterm>")
+	}
+	
 	info, err := s.APIInfo()
 	if err != nil {
 		log.Panicln(err)
@@ -28,7 +52,7 @@ func main() {
 		info.QueryCredits,
 		info.ScanCredits)
 
-	hostSearch, err := s.HostSearch(os.Args[1])
+	hostSearch, err := s.HostSearch(*searchPtr)
 	if err != nil {
 		log.Panicln(err)
 	}
