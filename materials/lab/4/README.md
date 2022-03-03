@@ -20,3 +20,17 @@
 
 ## Option 3
 - Create a wyoassign_test.go file which tests the functionality of the code
+
+# Submission
+
+CreateAssignment function has been updated to correctly return the status on
+creation and log the call. UpdateAssignment has been updated and enabled. The
+assignment with the id in the url is updated with the form values of the request.
+
+Option 1 was chosen.
+
+New endpoints are:
+- GET /classes
+- DEL /class/{id}
+- POST /class
+-- form values are strings with keys id, title, instr, desc, room.

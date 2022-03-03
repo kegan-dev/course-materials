@@ -1,0 +1,40 @@
+===================GET /api-status============================
+200 OK
+API is up and running
+===================GET /assignments============================
+200 OK
+{
+    "assignments": [
+        {
+            "id": "Mike1A",
+            "Title": "Lab 4 ",
+            "desc": "Some lab this guy made yesteday?",
+            "points": 20
+        }
+    ]
+}
+===================GET /assignment/Mike1A============================
+200 OK
+{
+    "id": "Mike1A",
+    "Title": "Lab 4 ",
+    "desc": "Some lab this guy made yesteday?",
+    "points": 20
+}
+===================DEL /assignment/Mike1A============================
+200 OK
+{"status":"Success"}
+===================POST /assignment============================
+201 Created
+===================PUT /assignment/Mike1A============================
+200 OK
+{
+    "assignments": [
+        {
+            "id": "Kegan1A",
+            "Title": "New Title",
+            "desc": "New desc",
+            "points": 100
+        }
+    ]
+}
