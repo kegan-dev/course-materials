@@ -42,7 +42,6 @@ func resetRegEx(){
 }
 
 func clearRegEx(){
-     //TODO_15 - Validate that this works as expected and doesn't cause issues
     regexes = nil
 }
 
