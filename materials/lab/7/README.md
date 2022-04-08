@@ -1,6 +1,16 @@
 # Lab 7
 Due April 9th at 11:59PM
 
+## Submission
+
+Run using the command `./main --file <filename>`
+
+Using the Top1pt6Million-probable-v2.txt you can find the passwords for the two drmike hashes. wordlist.txt let's you find the rest of the hashes.
+
+A test has been added to hscan_test.go for timing the hashmap creation. It will output the timing information for a fast and slow implementation.
+
+Another test has been added to verify that the hashmaps are generated correctly. It generates the hashmaps and checks for known values to exist for passwords.
+
 ## Development Work [18 points]
 - [3pt] Complete the TODOs in [main.go](course-materials/materials/lab/7/main/main.go)
 - [12pt] Complete the TODOs in [hscan.go](course-materials/materials/lab/7/hscan/hscan.go)
